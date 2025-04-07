@@ -67,6 +67,12 @@ func readLastLine(filePath string) (string, error) {
 			}
 			break
 		}
+		if i == 0 {
+			_, err := file.Seek(i, io.SeekStart)
+			if err != nil {
+				return "", err
+			}
+		}
 	}
 
 	reader := bufio.NewReader(file)
