@@ -67,6 +67,8 @@ func readLastLine(filePath string) (string, error) {
 			}
 			break
 		}
+		//file.Read move the file seek, if do not find "/n",
+		//there is only one line of log in the file,read from begining
 		if i == 0 {
 			_, err := file.Seek(i, io.SeekStart)
 			if err != nil {
